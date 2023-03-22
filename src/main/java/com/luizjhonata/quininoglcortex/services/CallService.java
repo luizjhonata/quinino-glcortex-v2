@@ -7,17 +7,18 @@ import com.luizjhonata.quininoglcortex.models.Plan;
 import com.luizjhonata.quininoglcortex.models.Tariff;
 import com.luizjhonata.quininoglcortex.repositories.PlanRepository;
 import com.luizjhonata.quininoglcortex.repositories.TariffRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CallService {
 
-    @Autowired
-    private TariffRepository tariffRepository;
+    private final TariffRepository tariffRepository;
+    private final PlanRepository planRepository;
 
-    @Autowired
-    private PlanRepository planRepository;
+    public CallService(final TariffRepository tariffRepository, final PlanRepository planRepository) {
+        this.tariffRepository = tariffRepository;
+        this.planRepository = planRepository;
+    }
 
     public Call calculateCallCost(Ddd origin, Ddd destiny, Double time, Long planId) throws Exception {
         Tariff tariff = tariffRepository.findByOriginAndDestiny(origin, destiny);

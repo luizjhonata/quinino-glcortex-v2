@@ -3,11 +3,9 @@ package com.luizjhonata.quininoglcortex.models;
 import com.luizjhonata.quininoglcortex.enums.Ddd;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
 
 public class Call {
 
-    @Id
     private Long id;
 
     @Enumerated(EnumType.STRING)

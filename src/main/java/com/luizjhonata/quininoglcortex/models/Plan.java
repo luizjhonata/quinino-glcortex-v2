@@ -12,7 +12,7 @@ public class Plan {
 
     private String name;
 
-    private String freeMinutes;
+    private Double freeMinutes;
 
     private Double additionalTariff;
 
@@ -32,11 +32,11 @@ public class Plan {
         this.name = name;
     }
 
-    public String getFreeMinutes() {
+    public Double getFreeMinutes() {
         return freeMinutes;
     }
 
-    public void setFreeMinutes(String freeMinutes) {
+    public void setFreeMinutes(Double freeMinutes) {
         this.freeMinutes = freeMinutes;
     }
 
@@ -51,7 +51,7 @@ public class Plan {
     public Plan() {
     }
 
-    public Plan(Long id, String name, String freeMinutes, Double additionalTariff) {
+    public Plan(Long id, String name, Double freeMinutes, Double additionalTariff) {
         this.id = id;
         this.name = name;
         this.freeMinutes = freeMinutes;

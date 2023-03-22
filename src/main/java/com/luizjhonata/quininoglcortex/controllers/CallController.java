@@ -1,6 +1,5 @@
 package com.luizjhonata.quininoglcortex.controllers;
 
-import com.luizjhonata.quininoglcortex.enums.Ddd;
 import com.luizjhonata.quininoglcortex.models.Call;
 import com.luizjhonata.quininoglcortex.services.CallService;
 import dto.PlanDTO;
@@ -19,7 +18,7 @@ public class CallController {
     }
 
     @GetMapping
-    public ResponseEntity<Call> callResponseEntity (Ddd origin, Ddd destiny, Double time, Long planId) throws RuntimeException {
+    public ResponseEntity<Call> callResponseEntity (String origin, String destiny, Double time, Long planId) throws RuntimeException {
         Call call = callService.calculateCallCost(origin, destiny, time, planId);
         return ResponseEntity.ok(call);
     }

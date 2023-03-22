@@ -1,18 +1,12 @@
 package com.luizjhonata.quininoglcortex.models;
 
-import com.luizjhonata.quininoglcortex.enums.Ddd;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-
 public class Call {
 
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private Ddd origin;
+    private String origin;
 
-    @Enumerated(EnumType.STRING)
-    private Ddd destiny;
+    private String destiny;
 
     private Double time;
 
@@ -30,19 +24,19 @@ public class Call {
         this.id = id;
     }
 
-    public Ddd getOrigin() {
+    public String getOrigin() {
         return origin;
     }
 
-    public void setOrigin(Ddd origin) {
+    public void setOrigin(String origin) {
         this.origin = origin;
     }
 
-    public Ddd getDestiny() {
+    public String getDestiny() {
         return destiny;
     }
 
-    public void setDestiny(Ddd destiny) {
+    public void setDestiny(String destiny) {
         this.destiny = destiny;
     }
 
@@ -81,7 +75,7 @@ public class Call {
     public Call() {
     }
 
-    public Call(Long id, Ddd origin, Ddd destiny, Double time, Plan plan, Double costWithPlan, Double costWithoutPlan) {
+    public Call(Long id, String origin, String destiny, Double time, Plan plan, Double costWithPlan, Double costWithoutPlan) {
         this.id = id;
         this.origin = origin;
         this.destiny = destiny;

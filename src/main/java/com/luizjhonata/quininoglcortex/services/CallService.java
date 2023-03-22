@@ -2,7 +2,6 @@ package com.luizjhonata.quininoglcortex.services;
 
 import com.luizjhonata.quininoglcortex.controlleradvice.PlanNotFoundException;
 import com.luizjhonata.quininoglcortex.controlleradvice.TariffNotFoundException;
-import com.luizjhonata.quininoglcortex.enums.Ddd;
 import com.luizjhonata.quininoglcortex.models.Call;
 import com.luizjhonata.quininoglcortex.models.Plan;
 import com.luizjhonata.quininoglcortex.models.Tariff;
@@ -23,7 +22,7 @@ public class CallService {
         this.planRepository = planRepository;
     }
 
-    public Call calculateCallCost(Ddd origin, Ddd destiny, Double time, Long planId) throws RuntimeException {
+    public Call calculateCallCost(String origin, String destiny, Double time, Long planId) throws RuntimeException {
         Tariff tariff = tariffRepository.findByOriginAndDestiny(origin, destiny).orElseThrow(()
         -> new TariffNotFoundException
                 ("Não é possível realizar chamada do " + origin + " para o " + destiny + " pela Q.uinino Telefonia"));

@@ -1,6 +1,5 @@
 package com.luizjhonata.quininoglcortex.models;
 
-import com.luizjhonata.quininoglcortex.enums.Ddd;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,13 +10,21 @@ public class Tariff {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private Ddd origin;
+    private String origin;
 
-    @Enumerated(EnumType.STRING)
-    private Ddd destiny;
+    private String destiny;
 
     private Double pricePerMinute;
+
+    public Tariff() {
+    }
+
+    public Tariff(Long id, String origin, String destiny, Double pricePerMinute) {
+        this.id = id;
+        this.origin = origin;
+        this.destiny = destiny;
+        this.pricePerMinute = pricePerMinute;
+    }
 
     public Long getId() {
         return id;
@@ -27,19 +34,19 @@ public class Tariff {
         this.id = id;
     }
 
-    public Ddd getOrigin() {
+    public String getOrigin() {
         return origin;
     }
 
-    public void setOrigin(Ddd origin) {
+    public void setOrigin(String origin) {
         this.origin = origin;
     }
 
-    public Ddd getDestiny() {
+    public String getDestiny() {
         return destiny;
     }
 
-    public void setDestiny(Ddd destiny) {
+    public void setDestiny(String destiny) {
         this.destiny = destiny;
     }
 
@@ -51,13 +58,4 @@ public class Tariff {
         this.pricePerMinute = pricePerMinute;
     }
 
-    public Tariff() {
-    }
-
-    public Tariff(Long id, Ddd origin, Ddd destiny, Double pricePerMinute) {
-        this.id = id;
-        this.origin = origin;
-        this.destiny = destiny;
-        this.pricePerMinute = pricePerMinute;
-    }
 }

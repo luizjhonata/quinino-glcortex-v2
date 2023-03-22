@@ -8,7 +8,9 @@ import com.luizjhonata.quininoglcortex.models.Plan;
 import com.luizjhonata.quininoglcortex.models.Tariff;
 import com.luizjhonata.quininoglcortex.repositories.PlanRepository;
 import com.luizjhonata.quininoglcortex.repositories.TariffRepository;
+import dto.PlanDTO;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class CallService {
@@ -23,7 +25,8 @@ public class CallService {
 
     public Call calculateCallCost(Ddd origin, Ddd destiny, Double time, Long planId) throws RuntimeException {
         Tariff tariff = tariffRepository.findByOriginAndDestiny(origin, destiny).orElseThrow(()
-        -> new TariffNotFoundException("Não é possível realizar chamada do " + origin+   " para o " +destiny + " pela Q.uinino Telefonia"));
+        -> new TariffNotFoundException
+                ("Não é possível realizar chamada do " + origin + " para o " + destiny + " pela Q.uinino Telefonia"));
         Plan plan = planRepository.findById(planId)
                 .orElseThrow(() -> new PlanNotFoundException());
 
@@ -43,5 +46,11 @@ public class CallService {
         call.setCostWithPlan(costWithPlan);
 
         return call;
+    }
+
+    public PlanDTO inserPlan(@RequestBody PlanDTO planDTO) {
+        Plan newPlan = new Plan(null, planDTO.getName(), planDTO.getFreeMinutes(), planDTO.getAdditionalTariff());
+        planRepository.save(newPlan);
+        return new PlanDTO(newPlan);
     }
 }

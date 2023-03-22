@@ -1,13 +1,9 @@
-package com.luizjhonata.quininoglcortex.models;
+package dto;
 
-import jakarta.persistence.*;
+import com.luizjhonata.quininoglcortex.models.Plan;
 
-@Entity
-@Table(name = "tb_plan")
-public class Plan {
+public class PlanDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -16,18 +12,21 @@ public class Plan {
 
     private Double additionalTariff;
 
-    public Plan() {
+    public PlanDTO() {
     }
 
-    public Plan(Long id, String name, Double freeMinutes, Double additionalTariff) {
+    public PlanDTO(Long id, String name, Double freeMinutes, Double additionalTariff) {
         this.id = id;
         this.name = name;
         this.freeMinutes = freeMinutes;
         this.additionalTariff = additionalTariff;
     }
 
-    public Plan(Plan newPlan) {
-
+    public PlanDTO(Plan plan) {
+        id = plan.getId();
+        name = plan.getName();
+        freeMinutes = plan.getFreeMinutes();
+        additionalTariff = plan.getAdditionalTariff();
     }
 
     public Long getId() {

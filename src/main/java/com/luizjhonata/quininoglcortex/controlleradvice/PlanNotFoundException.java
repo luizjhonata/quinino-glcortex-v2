@@ -1,8 +1,8 @@
 package com.luizjhonata.quininoglcortex.controlleradvice;
 
-public class PlanNotFoundException extends Exception{
+public class PlanNotFoundException extends RuntimeException{
 
-    public PlanNotFoundException(String msg) {
-        super(msg);
+    public PlanNotFoundException() {
+        super("Plano não disponível pela Q.uinino Telefonia");
     }
 }

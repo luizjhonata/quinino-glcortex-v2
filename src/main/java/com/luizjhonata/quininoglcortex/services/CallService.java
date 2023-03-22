@@ -1,6 +1,7 @@
 package com.luizjhonata.quininoglcortex.services;
 
 import com.luizjhonata.quininoglcortex.controlleradvice.PlanNotFoundException;
+import com.luizjhonata.quininoglcortex.controlleradvice.TariffNotFoundException;
 import com.luizjhonata.quininoglcortex.enums.Ddd;
 import com.luizjhonata.quininoglcortex.models.Call;
 import com.luizjhonata.quininoglcortex.models.Plan;
@@ -20,10 +21,11 @@ public class CallService {
         this.planRepository = planRepository;
     }
 
-    public Call calculateCallCost(Ddd origin, Ddd destiny, Double time, Long planId) throws Exception {
-        Tariff tariff = tariffRepository.findByOriginAndDestiny(origin, destiny);
+    public Call calculateCallCost(Ddd origin, Ddd destiny, Double time, Long planId) throws RuntimeException {
+        Tariff tariff = tariffRepository.findByOriginAndDestiny(origin, destiny).orElseThrow(()
+        -> new TariffNotFoundException("Não é possível realizar chamada do " + origin+   " para o " +destiny + " pela Q.uinino Telefonia"));
         Plan plan = planRepository.findById(planId)
-                .orElseThrow(() -> new PlanNotFoundException("Plan not found"));
+                .orElseThrow(() -> new PlanNotFoundException());
 
         Double costWithoutPlan = time * tariff.getPricePerMinute();
         Double costWithPlan = 0.0;

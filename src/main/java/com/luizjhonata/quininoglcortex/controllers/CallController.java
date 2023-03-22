@@ -18,9 +18,8 @@ public class CallController {
         this.callService = callService;
     }
 
-
     @GetMapping
-    public ResponseEntity<Call> callResponseEntity (Ddd origin, Ddd destiny, Double time, Long planId) throws Exception {
+    public ResponseEntity<Call> callResponseEntity (Ddd origin, Ddd destiny, Double time, Long planId) throws RuntimeException {
         Call call = callService.calculateCallCost(origin, destiny, time, planId);
         return ResponseEntity.ok(call);
     }

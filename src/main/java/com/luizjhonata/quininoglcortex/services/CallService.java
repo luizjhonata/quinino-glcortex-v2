@@ -7,9 +7,7 @@ import com.luizjhonata.quininoglcortex.models.Plan;
 import com.luizjhonata.quininoglcortex.models.Tariff;
 import com.luizjhonata.quininoglcortex.repositories.PlanRepository;
 import com.luizjhonata.quininoglcortex.repositories.TariffRepository;
-import dto.PlanDTO;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class CallService {
@@ -45,11 +43,5 @@ public class CallService {
         call.setCostWithPlan(costWithPlan);
 
         return call;
-    }
-
-    public PlanDTO inserPlan(@RequestBody PlanDTO planDTO) {
-        Plan newPlan = new Plan(null, planDTO.getName(), planDTO.getFreeMinutes(), planDTO.getAdditionalTariff());
-        planRepository.save(newPlan);
-        return new PlanDTO(newPlan);
     }
 }

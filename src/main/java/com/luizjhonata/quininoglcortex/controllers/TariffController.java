@@ -1,6 +1,5 @@
 package com.luizjhonata.quininoglcortex.controllers;
 
-import com.luizjhonata.quininoglcortex.models.Tariff;
 import com.luizjhonata.quininoglcortex.services.TariffService;
 import dto.TariffDTO;
 import org.springframework.http.HttpStatus;
@@ -24,9 +23,8 @@ public class TariffController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<TariffDTO> updateTariff(@PathVariable Long id, @RequestBody TariffDTO newTariff) {
-        tariffService.updateTariff(newTariff);
-        return ResponseEntity.ok(newTariff);
+    public ResponseEntity<TariffDTO> updateTariff(@PathVariable Long id, @RequestBody TariffDTO tariff) {
+        tariffService.updateTariff(tariff);
+        return ResponseEntity.ok(tariff);
     }
 }
-

@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "costcall")
+@RequestMapping(value = "costcalls")
 public class CallController {
 
     private final CallService callService;

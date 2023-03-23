@@ -29,6 +29,15 @@ public class TariffService {
         if(tariffRepository.existsById(tariff.getId())) {
             Tariff updateTariff = tariffRepository.getReferenceById(tariff.getId());
             updateTariff.setId(tariff.getId());
+            if (tariff.getOrigin() == null || tariff.getOrigin() == "" ) {
+                tariff.setOrigin(updateTariff.getOrigin());
+            }
+            if (tariff.getDestiny() == null || tariff.getDestiny() == "") {
+                tariff.setDestiny(updateTariff.getDestiny());
+            }
+            if(tariff.getPricePerMinute() == null || tariff.getPricePerMinute() == 0) {
+                tariff.setPricePerMinute(updateTariff.getPricePerMinute());
+            }
             updateTariff.setDestiny(tariff.getDestiny());
             updateTariff.setOrigin(tariff.getOrigin());
             updateTariff.setPricePerMinute(tariff.getPricePerMinute());
@@ -37,4 +46,3 @@ public class TariffService {
         return tariff;
     }
 }
-

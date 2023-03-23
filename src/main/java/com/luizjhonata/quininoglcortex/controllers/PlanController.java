@@ -12,7 +12,6 @@ public class PlanController {
 
     private final PlanService planService;
 
-
     public PlanController(PlanService planService) {
         this.planService = planService;
     }
@@ -21,5 +20,11 @@ public class PlanController {
     public ResponseEntity<PlanDTO> insertPlan(@RequestBody PlanDTO newPlan) {
         planService.inserPlan(newPlan);
         return ResponseEntity.status(HttpStatus.CREATED).body(newPlan);
+    }
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<PlanDTO> updatePlan(
+            @PathVariable Long id, @RequestBody PlanDTO plan) {
+        planService.updatePlan(plan);
+        return ResponseEntity.ok(plan);
     }
 }

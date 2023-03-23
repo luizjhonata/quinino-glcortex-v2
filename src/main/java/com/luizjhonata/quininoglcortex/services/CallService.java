@@ -22,7 +22,7 @@ public class CallService {
 
     public Call calculateCallCost(String origin, String destiny, Double time, Long planId) throws RuntimeException {
         Tariff tariff = tariffRepository.findByOriginAndDestiny(origin, destiny).orElseThrow(()
-        -> new TariffNotFoundException
+                -> new TariffNotFoundException
                 ("Não é possível realizar chamada do " + origin + " para o " + destiny + " pela Q.uinino Telefonia"));
         Plan plan = planRepository.findById(planId)
                 .orElseThrow(() -> new PlanNotFoundException());

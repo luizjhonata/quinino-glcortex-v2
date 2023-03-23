@@ -44,4 +44,11 @@ public class PlanService {
         }
         return plan;
     }
+
+    @Transactional
+    public void deletePlanById(Long id) {
+        if (planRepository.existsById(id)) {
+            planRepository.deleteById(id);
+        }
+    }
 }

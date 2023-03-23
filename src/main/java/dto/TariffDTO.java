@@ -1,6 +1,5 @@
 package dto;
 
-import com.luizjhonata.quininoglcortex.enums.Ddd;
 import com.luizjhonata.quininoglcortex.models.Tariff;
 
 public class TariffDTO {

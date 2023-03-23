@@ -1,5 +1,6 @@
 package com.luizjhonata.quininoglcortex.services;
 
+import com.luizjhonata.quininoglcortex.controlleradvice.TariffNotFoundException;
 import com.luizjhonata.quininoglcortex.models.Tariff;
 import com.luizjhonata.quininoglcortex.repositories.TariffRepository;
 import dto.TariffDTO;
@@ -44,5 +45,11 @@ public class TariffService {
             tariffRepository.save(updateTariff);
         }
         return tariff;
+    }
+
+    @Transactional
+    public void deleteTariffById(Long id) throws RuntimeException{
+        Tariff tariff = tariffRepository.findById(id).orElseThrow(() -> new TariffNotFoundException("Tarifa não Encontrada"));
+        tariffRepository.deleteById(id);
     }
 }

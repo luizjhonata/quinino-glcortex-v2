@@ -27,4 +27,9 @@ public class PlanController {
         planService.updatePlan(plan);
         return ResponseEntity.ok(plan);
     }
+
+    @DeleteMapping("/{id}")
+    public void deletePlanById(@PathVariable("id") Long id) {
+        planService.deletePlanById(id);
+    }
 }

@@ -27,4 +27,9 @@ public class TariffController {
         tariffService.updateTariff(tariff);
         return ResponseEntity.ok(tariff);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteTariffById(@PathVariable Long id) {
+        tariffService.deleteTariffById(id);
+    }
 }

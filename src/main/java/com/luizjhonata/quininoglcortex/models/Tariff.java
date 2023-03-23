@@ -1,6 +1,10 @@
 package com.luizjhonata.quininoglcortex.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_tariff")
@@ -10,10 +14,19 @@ public class Tariff {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "Origin cannot be null")
+    @NotEmpty(message = "Origin cannot be empty")
+    @Size(max = 3, min = 3, message = "Please use the format 'XXX' ")
     private String origin;
 
+    @NotNull(message = "Destiny cannot be null")
+    @NotEmpty(message = "Destiny cannot be empty")
+    @Size(max = 3, min = 3, message = "Please use the format 'XXX' ")
     private String destiny;
 
+    @NotEmpty
+    @NotNull
+    @Min(value = 0, message = "Price cannot be less than 0")
     private Double pricePerMinute;
 
     public Tariff() {

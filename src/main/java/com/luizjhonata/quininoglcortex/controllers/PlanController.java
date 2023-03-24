@@ -20,7 +20,7 @@ public class PlanController {
     @Operation(summary = "Insert a new Plan")
     @PostMapping
     public ResponseEntity<PlanDTO> insertPlan(@RequestBody PlanDTO newPlan) {
-        planService.inserPlan(newPlan);
+        planService.insertPlan(newPlan);
         return ResponseEntity.status(HttpStatus.CREATED).body(newPlan);
     }
     @Operation(summary = "Update Plan data")

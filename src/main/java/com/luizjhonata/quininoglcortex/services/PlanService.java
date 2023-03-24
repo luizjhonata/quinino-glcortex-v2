@@ -17,7 +17,7 @@ public class PlanService {
         this.planRepository = planRepository;
     }
 
-    public PlanDTO inserPlan(@RequestBody PlanDTO planDTO) {
+    public PlanDTO insertPlan(@RequestBody PlanDTO planDTO) {
         Plan newPlan = new Plan(null, planDTO.getName(), planDTO.getFreeMinutes(), planDTO.getAdditionalTariff());
         planRepository.save(newPlan);
         return new PlanDTO(newPlan);

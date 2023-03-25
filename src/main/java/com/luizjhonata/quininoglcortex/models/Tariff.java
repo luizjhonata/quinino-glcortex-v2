@@ -24,8 +24,7 @@ public class Tariff {
     @Size(max = 3, min = 3, message = "Please use the format 'XXX' ")
     private String destiny;
 
-    @NotEmpty
-    @NotNull
+    @NotNull(message = "Price per minute cannot be null")
     @Min(value = 0, message = "Price cannot be less than 0")
     private Double pricePerMinute;
 

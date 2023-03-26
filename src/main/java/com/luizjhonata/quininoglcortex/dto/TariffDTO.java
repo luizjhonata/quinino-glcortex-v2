@@ -1,4 +1,4 @@
-package dto;
+package com.luizjhonata.quininoglcortex.dto;
 
 import com.luizjhonata.quininoglcortex.models.Tariff;
 

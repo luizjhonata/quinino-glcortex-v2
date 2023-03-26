@@ -2,7 +2,7 @@ package com.luizjhonata.quininoglcortex.services;
 
 import com.luizjhonata.quininoglcortex.models.Plan;
 import com.luizjhonata.quininoglcortex.repositories.PlanRepository;
-import dto.PlanDTO;
+import com.luizjhonata.quininoglcortex.dto.PlanDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;

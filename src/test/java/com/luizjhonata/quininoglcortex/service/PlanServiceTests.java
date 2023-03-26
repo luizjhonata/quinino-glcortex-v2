@@ -3,7 +3,7 @@ package com.luizjhonata.quininoglcortex.service;
 import com.luizjhonata.quininoglcortex.models.Plan;
 import com.luizjhonata.quininoglcortex.repositories.PlanRepository;
 import com.luizjhonata.quininoglcortex.services.PlanService;
-import dto.PlanDTO;
+import com.luizjhonata.quininoglcortex.dto.PlanDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

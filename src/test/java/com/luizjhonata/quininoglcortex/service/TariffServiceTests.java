@@ -3,7 +3,7 @@ package com.luizjhonata.quininoglcortex.service;
 import com.luizjhonata.quininoglcortex.models.Tariff;
 import com.luizjhonata.quininoglcortex.repositories.TariffRepository;
 import com.luizjhonata.quininoglcortex.services.TariffService;
-import dto.TariffDTO;
+import com.luizjhonata.quininoglcortex.dto.TariffDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

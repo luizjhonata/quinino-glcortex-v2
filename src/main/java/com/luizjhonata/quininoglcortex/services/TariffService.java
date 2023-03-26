@@ -3,7 +3,7 @@ package com.luizjhonata.quininoglcortex.services;
 import com.luizjhonata.quininoglcortex.controlleradvice.TariffNotFoundException;
 import com.luizjhonata.quininoglcortex.models.Tariff;
 import com.luizjhonata.quininoglcortex.repositories.TariffRepository;
-import dto.TariffDTO;
+import com.luizjhonata.quininoglcortex.dto.TariffDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;

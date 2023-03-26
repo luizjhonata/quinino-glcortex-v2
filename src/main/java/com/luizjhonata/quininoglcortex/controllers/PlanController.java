@@ -1,7 +1,7 @@
 package com.luizjhonata.quininoglcortex.controllers;
 
 import com.luizjhonata.quininoglcortex.services.PlanService;
-import dto.PlanDTO;
+import com.luizjhonata.quininoglcortex.dto.PlanDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

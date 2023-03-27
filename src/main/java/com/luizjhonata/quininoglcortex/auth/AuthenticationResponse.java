@@ -1,2 +1,15 @@
-package com.luizjhonata.quininoglcortex;public class AuthenticationResponse {
+package com.luizjhonata.quininoglcortex.auth;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class AuthenticationResponse {
+
+    private String token;
 }

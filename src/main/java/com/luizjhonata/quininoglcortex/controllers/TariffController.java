@@ -1,11 +1,14 @@
 package com.luizjhonata.quininoglcortex.controllers;
 
+import com.luizjhonata.quininoglcortex.dto.PlanDTO;
 import com.luizjhonata.quininoglcortex.services.TariffService;
 import com.luizjhonata.quininoglcortex.dto.TariffDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "tariffs")
@@ -35,5 +38,12 @@ public class TariffController {
     @DeleteMapping("/{id}")
     public void deleteTariffById(@PathVariable Long id) {
         tariffService.deleteTariffById(id);
+    }
+
+    @Operation(summary = "Get a list off all tariffs")
+    @GetMapping
+    public ResponseEntity<List<TariffDTO>> findAll() {
+        List<TariffDTO> listTariff = tariffService.findAll();
+        return ResponseEntity.ok().body(listTariff);
     }
 }

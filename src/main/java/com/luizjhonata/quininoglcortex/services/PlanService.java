@@ -8,6 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class PlanService {
 
@@ -50,5 +53,10 @@ public class PlanService {
         if (planRepository.existsById(id)) {
             planRepository.deleteById(id);
         }
+    }
+
+    public List<PlanDTO> findAll() {
+        List<Plan> listPlan = planRepository.findAll();
+        return listPlan.stream().map(x -> new PlanDTO(x)).collect(Collectors.toList());
     }
 }

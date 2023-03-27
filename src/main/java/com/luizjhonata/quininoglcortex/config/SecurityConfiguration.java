@@ -28,6 +28,7 @@ public class SecurityConfiguration {
         http.csrf().disable().authorizeHttpRequests()
                 .requestMatchers("/api/v1/auth/**").permitAll()
                 .requestMatchers("/costcalls/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/plans").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/v1/auth/authenticate").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/v1/auth/register").permitAll()
                 .requestMatchers(HttpMethod.OPTIONS).permitAll()

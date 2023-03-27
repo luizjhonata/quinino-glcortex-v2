@@ -31,13 +31,18 @@ To do that, the system has 3 entities, call, plan and tariffs. The entity call i
 
 ## Methods availables with the API
 
-- GET calculateCallCost; (Make the cost calc of calls with and without a plan)
+- GET - calculateCallCost; (Make the cost calc of calls with and without a plan)
+- GET - All plans; (Show all plans)
+- GET - All tariffs; (Show all tariffs)
 - POST - insertPlan; (Insert new plans)
 - POST - insertTariff; (Insert new tariffs)
 - PUT - updataPlan; (Update any data about a plan)
 - PUT - updateTariff; (Update any data about a tariff)
 - DETELE - deletePlanById; (Delete a plan by his ID)
 - DELETE - deleteTariffById; (Delete a tariff by his ID)
+- POST - register; (Insert a new user)
+- POST - authentication; (Do authentication)
+
 
 ## SWAGGER DOCUMENTATION
 
@@ -80,9 +85,17 @@ git clone https://github.com/luizjhonata/quinino-glcortex.git
 # enter in the quinino-glcortex project folder
 cd quinino-glcortex
 
+# go to application.properties and change the profile to test
+
 # run the project
 ./mvnw spring-boot:run
 ```
+You can use swagger after start the application. You can access swagger by the link http://localhost:8080/swagger-ui/index.html.
+1 - You need to do a POST to insert a new user, do a post with the data that swagger ask you;
+2 - You need to do a POST to do authentication and get your token jwt;
+3 - With the token you can use all application(to use the token in a request, click on the locker in the right side, an window will open and you need to paste the token that the authentication method give to you;
+4 - To use the method to calc cost of calls you don't need a token;
+5 - ENJOY!
 
 # Autor
 

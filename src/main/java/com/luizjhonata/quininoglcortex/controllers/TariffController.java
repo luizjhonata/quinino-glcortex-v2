@@ -21,6 +21,7 @@ public class TariffController {
     }
 
     @Operation(summary = "Inserte a new Tariff")
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
     @PostMapping
     public ResponseEntity<TariffDTO> insertTariff(@RequestBody TariffDTO newTariff) {
         tariffService.insertTariff(newTariff);
@@ -28,19 +29,22 @@ public class TariffController {
     }
 
     @Operation(summary = "Update Tariff data")
-    @PutMapping(value = "/{id}")
-    public ResponseEntity<TariffDTO> updateTariff(@PathVariable Long id, @RequestBody TariffDTO tariff) {
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @PutMapping
+    public ResponseEntity<TariffDTO> updateTariff(@RequestBody TariffDTO tariff) {
         tariffService.updateTariff(tariff);
         return ResponseEntity.ok(tariff);
     }
 
     @Operation(summary = "Delete a Tariff")
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
     @DeleteMapping("/{id}")
     public void deleteTariffById(@PathVariable Long id) {
         tariffService.deleteTariffById(id);
     }
 
     @Operation(summary = "Get a list off all tariffs")
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
     @GetMapping
     public ResponseEntity<List<TariffDTO>> findAll() {
         List<TariffDTO> listTariff = tariffService.findAll();

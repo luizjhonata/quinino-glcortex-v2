@@ -27,7 +27,7 @@ public class PlanService {
     }
 
     @Transactional
-    public PlanDTO updatePlan(@PathVariable PlanDTO plan) {
+    public PlanDTO updatePlan(PlanDTO plan) {
         if(planRepository.existsById(plan.getId())) {
             Plan updatePlan = planRepository.getReferenceById(plan.getId());
             updatePlan.setId(plan.getId());

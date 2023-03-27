@@ -31,7 +31,7 @@ public class TariffService {
     }
 
     @Transactional
-    public TariffDTO updateTariff(@PathVariable TariffDTO tariff) {
+    public TariffDTO updateTariff(TariffDTO tariff) {
         if(tariffRepository.existsById(tariff.getId())) {
             Tariff updateTariff = tariffRepository.getReferenceById(tariff.getId());
             updateTariff.setId(tariff.getId());

@@ -20,20 +20,22 @@ public class PlanController {
     }
 
     @Operation(summary = "Insert a new Plan")
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
     @PostMapping
     public ResponseEntity<PlanDTO> insertPlan(@RequestBody PlanDTO newPlan) {
         planService.insertPlan(newPlan);
         return ResponseEntity.status(HttpStatus.CREATED).body(newPlan);
     }
     @Operation(summary = "Update Plan data")
-    @PutMapping(value = "/{id}")
-    public ResponseEntity<PlanDTO> updatePlan(
-            @PathVariable Long id, @RequestBody PlanDTO plan) {
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @PutMapping
+    public ResponseEntity<PlanDTO> updatePlan(@RequestBody PlanDTO plan) {
         planService.updatePlan(plan);
         return ResponseEntity.ok(plan);
     }
 
     @Operation(summary = "Delete a plan")
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
     @DeleteMapping("/{id}")
     public void deletePlanById(@PathVariable("id") Long id) {
         planService.deletePlanById(id);
@@ -41,6 +43,7 @@ public class PlanController {
 
 
     @Operation(summary = "Get a list off all plans")
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
     @GetMapping
     public ResponseEntity<List<PlanDTO>> findAll() {
         List<PlanDTO> listPlan = planService.findAll();

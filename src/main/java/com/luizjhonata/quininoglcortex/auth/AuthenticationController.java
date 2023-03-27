@@ -17,7 +17,8 @@ public class AuthenticationController {
     ) {
         return ResponseEntity.ok(service.register(request));
     }
-    @CrossOrigin(origins = "http://127.0.0.1:5173")
+//    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @CrossOrigin(origins = "https://quininov2.netlify.app/")
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(
             @RequestBody AuthenticationRequest request

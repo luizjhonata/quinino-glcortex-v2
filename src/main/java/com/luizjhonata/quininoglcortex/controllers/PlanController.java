@@ -20,14 +20,16 @@ public class PlanController {
     }
 
     @Operation(summary = "Insert a new Plan")
-    @CrossOrigin(origins = "http://127.0.0.1:5173")
+//    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @CrossOrigin(origins = "https://quininov2.netlify.app/")
     @PostMapping
     public ResponseEntity<PlanDTO> insertPlan(@RequestBody PlanDTO newPlan) {
         planService.insertPlan(newPlan);
         return ResponseEntity.status(HttpStatus.CREATED).body(newPlan);
     }
     @Operation(summary = "Update Plan data")
-    @CrossOrigin(origins = "http://127.0.0.1:5173")
+//    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @CrossOrigin(origins = "https://quininov2.netlify.app/")
     @PutMapping
     public ResponseEntity<PlanDTO> updatePlan(@RequestBody PlanDTO plan) {
         planService.updatePlan(plan);
@@ -35,7 +37,8 @@ public class PlanController {
     }
 
     @Operation(summary = "Delete a plan")
-    @CrossOrigin(origins = "http://127.0.0.1:5173")
+//    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @CrossOrigin(origins = "https://quininov2.netlify.app/")
     @DeleteMapping("/{id}")
     public void deletePlanById(@PathVariable("id") Long id) {
         planService.deletePlanById(id);
@@ -43,7 +46,8 @@ public class PlanController {
 
 
     @Operation(summary = "Get a list off all plans")
-    @CrossOrigin(origins = "http://127.0.0.1:5173")
+//    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @CrossOrigin(origins = "https://quininov2.netlify.app/")
     @GetMapping
     public ResponseEntity<List<PlanDTO>> findAll() {
         List<PlanDTO> listPlan = planService.findAll();

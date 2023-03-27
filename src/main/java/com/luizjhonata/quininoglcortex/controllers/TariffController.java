@@ -21,7 +21,8 @@ public class TariffController {
     }
 
     @Operation(summary = "Inserte a new Tariff")
-    @CrossOrigin(origins = "http://127.0.0.1:5173")
+//    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @CrossOrigin(origins = "https://quininov2.netlify.app/")
     @PostMapping
     public ResponseEntity<TariffDTO> insertTariff(@RequestBody TariffDTO newTariff) {
         tariffService.insertTariff(newTariff);
@@ -29,7 +30,8 @@ public class TariffController {
     }
 
     @Operation(summary = "Update Tariff data")
-    @CrossOrigin(origins = "http://127.0.0.1:5173")
+//    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @CrossOrigin(origins = "https://quininov2.netlify.app/")
     @PutMapping
     public ResponseEntity<TariffDTO> updateTariff(@RequestBody TariffDTO tariff) {
         tariffService.updateTariff(tariff);
@@ -37,14 +39,16 @@ public class TariffController {
     }
 
     @Operation(summary = "Delete a Tariff")
-    @CrossOrigin(origins = "http://127.0.0.1:5173")
+//    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @CrossOrigin(origins = "https://quininov2.netlify.app/")
     @DeleteMapping("/{id}")
     public void deleteTariffById(@PathVariable Long id) {
         tariffService.deleteTariffById(id);
     }
 
     @Operation(summary = "Get a list off all tariffs")
-    @CrossOrigin(origins = "http://127.0.0.1:5173")
+//    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @CrossOrigin(origins = "https://quininov2.netlify.app/")
     @GetMapping
     public ResponseEntity<List<TariffDTO>> findAll() {
         List<TariffDTO> listTariff = tariffService.findAll();

@@ -30,7 +30,6 @@ public class SecurityConfiguration {
                 .requestMatchers("/costcalls/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/v1/auth/authenticate").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/v1/auth/register").permitAll()
-                .requestMatchers(HttpMethod.GET).permitAll()
                 .requestMatchers(HttpMethod.OPTIONS).permitAll()
                 .requestMatchers("/v3/api-docs/**",
                         "/swagger-ui/**", "/api/v1/auth/**").permitAll()
